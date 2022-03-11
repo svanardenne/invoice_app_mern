@@ -5,6 +5,8 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
+const { signup } = require("./controllers/auth");
+
 // Mongoose connection
 mongoose.connect(process.env.MONGODB_URI);
 mongoose.connection.on("connected", () => {
@@ -20,6 +22,7 @@ mongoose.connection.on("error", (err) => {
 app.use(express.json());
 
 // Routes
+app.post("/signup", signup);
 
 // Server setup
 app.listen(process.env.PORT, () => {
