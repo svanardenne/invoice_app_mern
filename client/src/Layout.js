@@ -1,4 +1,5 @@
 import React from "react";
+import { Container } from "react-bootstrap";
 
 import Navbar from "./components/Navbar";
 
@@ -6,7 +7,9 @@ const Layout = () => {
   return (
     <React.Fragment>
       <Navbar />
-      <div>I am the body!</div>
+      <Container>
+        <h1>I am the body!</h1>
+      </Container>
     </React.Fragment>
   );
 };
