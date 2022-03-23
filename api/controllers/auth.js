@@ -14,3 +14,22 @@ exports.signup = (req, res) => {
     });
   });
 };
+
+exports.login = (req, res) => {
+  const { email, password } = req.body;
+  User.findOne({ email }, (err, user) => {
+    if (err || !user) {
+      return res.status(400).json({
+        error: "Wrong email or password.",
+      });
+    }
+    if (!user.authenticate(password)) {
+      return res.status(401).json({
+        error: "Wrong email or password.",
+      });
+    }
+    res.status(200).json({
+      message: "Logged in successfully!",
+    });
+  });
+};

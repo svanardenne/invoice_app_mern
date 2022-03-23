@@ -25,7 +25,7 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-// Pre
+// Pre-Save Password Hashing
 userSchema.pre("save", function (next) {
   const user = this;
   if (!user.isModified("password")) return next();
@@ -40,7 +40,16 @@ userSchema.pre("save", function (next) {
 
 // Methods
 userSchema.methods.authenticate = function (password) {
-  return bcrypt.compare(password, this.password);
+  console.log(password);
+  console.log(this.password);
+  console.log(bcrypt.compare(password, this.password));
+  return bcrypt.compareSync(password, this.password, (err, result) => {
+    if (err || !result) {
+      return false;
+    } else {
+      return true;
+    }
+  });
 };
 
 module.exports = mongoose.model("User", userSchema);

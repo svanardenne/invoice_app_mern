@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 dotenv.config();
 
-const { signup } = require("./controllers/auth");
+const { signup, login } = require("./controllers/auth");
 
 // Mongoose connection
 mongoose.connect(process.env.MONGODB_URI);
@@ -23,6 +23,7 @@ app.use(express.json());
 
 // Routes
 app.post("/signup", signup);
+app.post("/login", login);
 
 // Server setup
 app.listen(process.env.PORT, () => {
