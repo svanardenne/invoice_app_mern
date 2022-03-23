@@ -31,10 +31,13 @@ exports.login = (req, res) => {
     }
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
     const { _id, name, email } = user;
-    res.status(200).json({
-      message: "Logged in successfully!",
-      token,
-      user: { _id, name, email },
-    });
+    return res
+      .cookie("token", token, { expire: new Date() + 9999 })
+      .status(200)
+      .json({
+        message: "Logged in successfully!",
+        token,
+        user: { _id, name, email },
+      });
   });
 };
