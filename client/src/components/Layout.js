@@ -1,5 +1,11 @@
+import React from "react";
+
 const Layout = () => {
-  return <h1>Hello World!</h1>;
+  return (
+    <React.Fragment>
+      <h1>I am a menu</h1>
+    </React.Fragment>
+  );
 };
 
 export default Layout;
