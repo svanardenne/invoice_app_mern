@@ -1,9 +1,12 @@
 import React from "react";
 
+import Navbar from "./components/Navbar";
+
 const Layout = () => {
   return (
     <React.Fragment>
-      <h1>I am a menu</h1>
+      <Navbar />
+      <div>I am the body!</div>
     </React.Fragment>
   );
 };

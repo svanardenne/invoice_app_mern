@@ -20,7 +20,7 @@ exports.login = (req, res) => {
   const { email, password } = req.body;
   User.findOne({ email }, (err, user) => {
     if (err || !user) {
-      return res.status(400).json({
+      return res.status(401).json({
         error: "Wrong email or password.",
       });
     }
