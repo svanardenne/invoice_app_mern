@@ -1,7 +1,12 @@
-import Routes from "./Routes";
+import React from "react";
+import Router from "./Router";
 
 const App = () => {
-  return <Routes />;
+  return (
+    <React.Fragment>
+      <Router />
+    </React.Fragment>
+  );
 };
 
 export default App;
