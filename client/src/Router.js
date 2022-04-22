@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Layout from "./Layout";
 import SignedOutHome from "./pages/SignedOutHome";
+import Help from "./pages/Help";
 
 const Router = () => {
   return (
@@ -10,6 +11,7 @@ const Router = () => {
       <Layout />
       <Routes>
         <Route exact path="/" element={<SignedOutHome />} />
+        <Route path="/help" element={<Help />} />
       </Routes>
     </BrowserRouter>
   );
