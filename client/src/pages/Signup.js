@@ -1,9 +1,24 @@
+import { useState } from "react";
 import { Container, Form, Button } from "react-bootstrap";
 
 const Signup = () => {
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    formData: new FormData(),
+  });
+
+  const { name, email, password, confirmPassword, formData } = values;
+
+  const Submit = (e) => () => {
+    e.preventDefault();
+  };
+
   return (
     <Container>
-      <Form>
+      <Form onSubmit={Submit}>
         <Form.Group className="mb-3" controlId="name-group">
           <Form.Label>Name</Form.Label>
           <Form.Control type="text" placeholder="Enter Name" />
