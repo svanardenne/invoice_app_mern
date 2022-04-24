@@ -29,6 +29,21 @@ const Signup = () => {
       console.log("Password and Confirm Password must match");
       return;
     }
+    fetch("/api/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+        confirmPassword,
+      }),
+    })
+      .then((data) => data.json())
+      .then((data) => console.log(data));
   };
 
   return (
