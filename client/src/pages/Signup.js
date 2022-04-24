@@ -7,7 +7,6 @@ const Signup = () => {
     email: "",
     password: "",
     confirmPassword: "",
-    formData: new FormData(),
   });
 
   const { name, email, password, confirmPassword, formData } = values;
