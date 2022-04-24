@@ -15,8 +15,20 @@ const Signup = () => {
     setValues({ ...values, [fieldName]: e.target.value });
   };
 
-  const Submit = (e) => () => {
+  const Submit = (e) => {
     e.preventDefault();
+    if (
+      !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+        email
+      )
+    ) {
+      console.log("Invalid Email");
+      return;
+    }
+    if (password !== confirmPassword) {
+      console.log("Password and Confirm Password must match");
+      return;
+    }
   };
 
   return (
