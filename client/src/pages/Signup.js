@@ -9,7 +9,7 @@ const Signup = () => {
     confirmPassword: "",
   });
 
-  const { name, email, password, confirmPassword, formData } = values;
+  const { name, email, password, confirmPassword } = values;
 
   const handleChange = (fieldName) => (e) => {
     setValues({ ...values, [fieldName]: e.target.value });
